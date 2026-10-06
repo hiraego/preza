@@ -47,3 +47,10 @@
 | themes/wolf.jpg | 1920×1280 | Colour photo: headshot of a European grey wolf in a zoo, fairly dark background that is lighter at the top (not opened visually; from Commons description and pixel statis | Artur Galicki | CC BY 4.0 | https://commons.wikimedia.org/wiki/File:Portrait_of_a_common_european_wolf.jpg |
 
 Не нашлось в свободном доступе: baby_tooth.jpg, p_elton.jpg, p_gause.jpg, p_lindeman.jpg, p_lotka.jpg, p_meadows.jpg, p_odum.jpg. Для этих людей и сюжетов фото нужно искать отдельно или обойтись без него.
+
+## Добавлено позже
+
+| Файл | Что на фото | Источник |
+|---|---|---|
+| portraits/p_elton.jpg | Чарльз Элтон с книгой, ч/б, кадрировано | прислал автор доклада, лицензия не указана |
+| portraits/p_odum.jpg | Юджин Одум за столом, ч/б, кадрировано | прислал автор доклада, лицензия не указана |

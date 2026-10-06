@@ -5,14 +5,14 @@ const { THREE, scene, camera, sun, hemi, finish } = stage({ w: 1500, h: 1300, fo
 const R = rng(5);
 
 const TIERS = [
-  { w: 5.6, n: 15, kind: 'plant', color: '#6cc46a', s: 0.115 },
-  { w: 4.0, n: 6, kind: 'herb', color: '#f2b33d', s: 0.14 },
-  { w: 2.5, n: 3, kind: 'pred', color: '#f07b3a', s: 0.2 },
-  { w: 1.2, n: 1, kind: 'top', color: '#ff4b3a', s: 0.3 },
+  { w: 5.6, n: 15, kind: 'plant', color: '#3f8a52', s: 0.115 },
+  { w: 4.0, n: 6, kind: 'herb', color: '#d9a43a', s: 0.14 },
+  { w: 2.5, n: 3, kind: 'pred', color: '#d9662e', s: 0.2 },
+  { w: 1.2, n: 1, kind: 'top', color: '#e5321d', s: 0.3 },
 ];
 const TH = 0.2, GAPY = 1.55;
-const slabMat = new THREE.MeshStandardMaterial({ color: '#2a3c5a', roughness: 0.55, metalness: 0.1 });
-const edgeMat = new THREE.LineBasicMaterial({ color: '#4fd1e8', transparent: true, opacity: 0.9 });
+const slabMat = new THREE.MeshStandardMaterial({ color: '#ebe8e1', roughness: 0.9, metalness: 0 });
+const edgeMat = new THREE.LineBasicMaterial({ color: '#0f0f0e' });
 const anchors = {};
 const dummy = new THREE.Object3D();
 
@@ -46,7 +46,7 @@ TIERS.forEach((t, k) => {
 });
 
 // вертикальные направляющие между ярусами
-const guide = new THREE.LineDashedMaterial({ color: '#4fd1e8', dashSize: 0.08, gapSize: 0.08, transparent: true, opacity: 0.5 });
+const guide = new THREE.LineDashedMaterial({ color: '#1f3fd6', dashSize: 0.08, gapSize: 0.08, transparent: true, opacity: 0.7 });
 for (let k = 0; k < TIERS.length - 1; k++) {
   const a = TIERS[k], b = TIERS[k + 1];
   const y0 = k * (TH + GAPY) + TH, y1 = (k + 1) * (TH + GAPY);
@@ -57,7 +57,7 @@ for (let k = 0; k < TIERS.length - 1; k++) {
 }
 
 sun({ pos: [-5, 12, 7], intensity: 2.6, size: 6, radius: 6, blur: 16 });
-hemi(0xe6f0ff, 0x30425e, 1.2);
+hemi(0xf4f4f2, 0xb8b3a8, 1.2);
 camera.position.set(11.8, 10.4, 14.8);
 camera.lookAt(0, 2.15, 0);
 finish(anchors);

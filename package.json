@@ -5,15 +5,12 @@
   "description": "Презентация «Известные зарубежные экологи» (Аладько И. И., ИТМО, 2026)",
   "scripts": {
     "render3d": "node scripts/render3d.mjs",
-    "render": "node scripts/render.mjs",
-    "build": "node scripts/render3d.mjs && node scripts/render.mjs && python3 scripts/build_outputs.py"
+    "pdf": "node scripts/render.mjs && python3 scripts/build_pdf.py",
+    "pptx": "node scripts/export_pptx.mjs && python3 scripts/build_pptx.py",
+    "build": "npm run pdf && npm run pptx",
+    "serve": "node scripts/serve.mjs"
   },
   "dependencies": {
-    "@fontsource/cormorant-garamond": "^5.2.0",
-    "@fontsource/gfs-didot": "^5.3.0",
-    "@fontsource/jetbrains-mono": "^5.2.0",
-    "@fontsource/onest": "^5.2.0",
-    "@fontsource/unbounded": "^5.2.0",
     "d3": "^7.9.0",
     "three": "^0.186.0",
     "topojson-client": "^3.1.0",

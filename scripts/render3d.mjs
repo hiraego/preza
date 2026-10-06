@@ -14,7 +14,7 @@ const only = process.argv.slice(2);
 // имя файла: сцена + вариант (через query)
 const JOBS = [
   ['chimborazo', ''], ['globe', ''], ['barrel', ''], ['pyramid', ''], ['ecosystem', ''],
-  ['pond', 'day=28'], ['pond', 'day=29'], ['pond', 'day=30'], ['islands', ''], ['book', ''],
+  ['pond', 'day=28'], ['pond', 'day=29'], ['pond', 'day=30'], ['islands', ''],
 ].filter(([s]) => !only.length || only.includes(s));
 
 const { srv, url } = await serve();

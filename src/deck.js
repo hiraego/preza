@@ -81,31 +81,15 @@ async function annotate(el) {
 }
 
 /* ---------- портреты, которых пока нет: если файл появится в assets/photos, он подставится сам ---------- */
-// Пока настоящего портрета нет, в ячейке стоит снимок по теме работ ученого (не чужое лицо)
-const EMBLEM = {
-  'p_elton.jpg': { src: 'lynx.jpg', pos: '100% 45%', scale: 1.9, origin: '72% 36%' },     // волны зайца и рыси
-  'p_odum.jpg': { src: 'forest_mist.jpg', pos: '60% 72%', scale: 1.2, origin: '60% 70%' }, // экосистема
-  'p_meadows.jpg': { src: 'earth.jpg', pos: '50% 50%', scale: 1.0, origin: '50% 50%' },    // пределы планеты
-};
-
 async function photos() {
   for (const el of document.querySelectorAll('[data-photo]')) {
     const src = `/assets/photos/${el.dataset.photo}`;
     const ok = await fetch(src, { method: 'HEAD' }).then(r => r.ok).catch(() => false);
-    const em = EMBLEM[el.dataset.photo];
-    if (!ok && !em) { if (el.hasAttribute('data-optional')) el.remove(); continue; }
+    if (!ok) { if (el.hasAttribute('data-optional')) el.remove(); continue; }
     el.querySelectorAll('.ini').forEach(n => n.remove());
     const im = document.createElement('img');
-    if (ok) {
-      im.src = src;
-      if (el.dataset.pos) im.style.objectPosition = el.dataset.pos;
-    } else {
-      im.src = `/assets/photos/${em.src}`;
-      im.style.objectPosition = em.pos;
-      im.style.transform = `scale(${em.scale})`;
-      im.style.transformOrigin = em.origin;
-      im.style.filter = 'grayscale(1) contrast(1.1)';
-    }
+    im.src = src;
+    if (el.dataset.pos) im.style.objectPosition = el.dataset.pos;
     el.prepend(im);
   }
 }

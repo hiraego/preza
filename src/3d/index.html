@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>3D</title>
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+<script src="/node_modules/d3/dist/d3.min.js"></script>
+<script src="/node_modules/topojson-client/dist/topojson-client.min.js"></script>
+</head>
+<body>
+<script type="module">
+  const scene = new URLSearchParams(location.search).get('scene');
+  import(`./scenes/${scene}.js`).catch(e => { document.title = 'ERR ' + e.message; console.error(e); window.__error = String(e.stack || e); });
+</script>
+</body>
+</html>
